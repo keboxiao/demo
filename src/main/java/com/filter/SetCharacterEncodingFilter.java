@@ -11,22 +11,21 @@ import javax.servlet.ServletResponse;
 
 public class SetCharacterEncodingFilter implements Filter {
 
-	private FilterConfig configer;  
-      
-    public void destroy() {  
-        configer = null;  
-    }  
-  
-    public void doFilter(ServletRequest request, ServletResponse response,  
-            FilterChain chain) throws IOException, ServletException {
-    	response.setContentType("text/html;charset=UTF-8");
-        chain.doFilter(request, response);
-    }
+	private FilterConfig configer;
+
+	public void destroy() {
+		configer = null;
+	}
+
+	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+			throws IOException, ServletException {
+		response.setContentType("text/html;charset=UTF-8");
+		chain.doFilter(request, response);
+	}
 
 	@Override
 	public void init(FilterConfig config) throws ServletException {
-		 this.configer = config; 
+		this.configer = config;
 	}
 
-    
 }
