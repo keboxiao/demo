@@ -1,8 +1,8 @@
 package com.test;
 
 /**
- * @author ¿Â²©Ïş
- * @date ´´½¨Ê±¼ä£º2017Äê10ÔÂ10ÈÕ ÏÂÎç3:53:30
+ * @author æŸ¯åšæ™“
+ * @date åˆ›å»ºæ—¶é—´ï¼š2017å¹´10æœˆ10æ—¥ ä¸‹åˆ3:53:30
  */
 
 public class TestMain {
@@ -14,5 +14,6 @@ public class TestMain {
 	public static void main(String[] args) throws Exception {
 		System.out.println("Hello world!!");
 		System.out.println("This is git Push!!!");
+		System.out.println("This is git Pull!!!");
 	}
 }
