@@ -19,11 +19,5 @@ target/
 .project  
 .settings/
 
-# 忽略idea工程文件
-*.iml
-.idea/
-.settings
-.metadata/
-
 # 忽略项目日志输出
 *.log
