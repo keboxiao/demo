@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * @author ¿Â²©Ïþ
@@ -16,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 
 public class LoginController extends HttpServlet {
 
+	private static final long serialVersionUID = 1L;
 	private Integer counter;
 	private String test;
 
@@ -39,6 +41,7 @@ public class LoginController extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {
 		test = (String) config.getServletContext().getAttribute("test");
 		super.init(config);
+		counter = 0;
 	}
 
 	@Override
@@ -48,6 +51,20 @@ public class LoginController extends HttpServlet {
 		out.print(name);
 		out.flush();
 		out.close();
+	}
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String username = req.getParameter("username");
+		String psw = req.getParameter("psw");
+		if (username.equals("test") && psw.equals("123")) {
+			counter++;
+			HttpSession session = req.getSession();
+			session.setAttribute("counter", counter);
+			resp.sendRedirect("login.jsp");
+		} else {
+			resp.sendRedirect("loginfailed.html");
+		}
 	}
 
 }
